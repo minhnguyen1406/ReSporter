@@ -1,7 +1,6 @@
 import credentials
 import requests
 from flask import Flask, request, Response
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -35,7 +34,7 @@ def webhook_handle():
                 },
                 'message': {"text":"hello, world!"}
             }
-        response = requests.post('https://graph.facebook.com/v5.0/me/messages?access_token='+credentials.PAGE_ACCESS_TOKEN(), json=request_body).json()
+        response = requests.post('https://graph.facebook.com/v5.0/me/messages?access_token='+ credentials.PAGE_ACCESS_TOKEN(), json=request_body).json()
         return response
     return 'ok'
 
